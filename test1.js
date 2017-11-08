@@ -51,7 +51,7 @@ router.get('/', async (ctx,next)=>{
 
 const getloop = async (adata,num) =>{
 		const data = await getweb(adata,num)
-		if (data.num<4) {
+		if (data.num<50) {
 			let num = data.num;
 			num++;
 			return new Promise((resolve)=>{resolve(getloop(data.data,num))});
@@ -158,7 +158,7 @@ async function getlink(alink){
 function getdownload(u){
 	return 	superagent.get(`http://www.ygdy8.com${u.href}`)
 		.charset('gb2312')
-		.retry(10)
+		.retry(20)
 		.then((sers,err)=>{
 			if (err) {
 				console.log(err+'!!!');
