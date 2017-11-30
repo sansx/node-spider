@@ -51,9 +51,11 @@ router.get('/', async (ctx,next)=>{
 
 const getloop = async (adata,num) =>{
 		const data = await getweb(adata,num)
-		if (data.num<50) {
+		if (data.num<150) {
+			await wait(500);
 			let num = data.num;
 			num++;
+			console.log(`第${num}页，开始获取...`);
 			return new Promise((resolve)=>{resolve(getloop(data.data,num))});
 		}else{
 			
@@ -66,12 +68,13 @@ const getloop = async (adata,num) =>{
 const getweb = (data,num)=>{
 	return superag.get(`http://www.ygdy8.com/html/gndy/dyzz/list_23_${num}.html`)
 			.charset('gb2312')
+			.retry(20)
 			.then(function(sres,err){
 				var item = data;
 				
 				if(err){
-					resolve({data:item,num:num});
-					return err;
+					return {data:item,num:num};
+					
 				}
 				var $ = cheerio.load(sres.text);
 				$('.co_content8 ul').find('a').each(function(aa,element){
@@ -94,25 +97,7 @@ function wait(ms){
 	return new Promise((resolve)=>{setTimeout(resolve(),ms);});
 }
 
-/*async function getlink(alink){
-	const ndata = [];
-	for(let [c,u] of Object.entries(alink)){
-		await wait(1000);
-		a = await getdownload(u);
-		await (async (a)=>{
-			var p = await getin.create({
-			'id':ndata.length,
-			'title':a.title||'',
-			'link':a.download||''
-			});
-			await wait(1000);
-	    	return new Promise((resolve)=>{resolve(console.log('created.' + JSON.stringify(p)))});
-			})(a);
-		ndata.push(a);
-	};
-	return new Promise((resolve)=>{resolve(ndata)});
-};
-*/
+
 const anum = 1;
 
 async function getlink(alink){
