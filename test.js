@@ -4,7 +4,9 @@ const superag = require('superagent-charset')(superagent);
 const Koa = require('koa');
 const router = require('koa-router')();
 const app = new Koa();
+const fs = require('fs');
 
+var writefs = fs.createWriteStream('input.txt');
 
 router.get('/', async (ctx, next) => {
 
@@ -25,9 +27,16 @@ var bili = (search) => {
 			var data = $('.video.matrix>a').each((re, el) => {
 				var $el = $(el);
 				var atr = $el.attr('title');
+				writefs.write(atr,'utf8');
+				
 				str += atr;
 			});
 			//console.log(data);
+			writefs.end();
+			writefs.on('finish', function () {
+				console.log("写入完成。");
+			});
+
 			return str;
 		})
 }
