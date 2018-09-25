@@ -56,7 +56,6 @@ async function geturl(data,max){
 							}*/
 						}
 					});
-					//console.log(item);
 					return {num:num,max:max,data:item,};
 				}).then((res,err)=> {//new Promise ((resolve)=>{
 					//console.log(max)
@@ -99,7 +98,7 @@ async function geturl(data,max){
 						//setTimeout(()=>{resolve(arr.data)},500);
 						//setTimeout(()=>{return arr.data},500);
 					}
-							//})).catch((err)=>{console.log(err)});
+                        //})).catch((err)=>{console.log(err)});
 				})
 			//resolve(downloadbox)
 	})
