@@ -28,7 +28,6 @@ var bili = (search) => {
 				var $el = $(el);
 				var atr = $el.attr('title');
 				writefs.write(atr,'utf8');
-				
 				str += atr;
 			});
 			//console.log(data);
