@@ -11,6 +11,7 @@
   "dependencies": {
     "async": "^2.6.0",
     "cheerio": "^1.0.0-rc.2",
+    "commander": "^2.19.0",
     "iconv-lite": "^0.4.19",
     "koa": "2.0.0",
     "koa-bodyparser": "3.2.0",
