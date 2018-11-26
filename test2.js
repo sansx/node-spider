@@ -5,7 +5,7 @@ const Koa = require('koa');
 const router = require('koa-router')();
 const app = new Koa();
 const fs = require('fs');
-
+const inquirer = require('inquirer');
 var writefs = fs.createWriteStream('input.txt');
 
 router.get('/', async (ctx, next) => {
@@ -42,6 +42,13 @@ var bili = (search) => {
 
 
 app.use(router.routes());
+inquirer.prompt([{
+    type : "input",
+    name : "subject",
+    message : "Subject - "
+  }]).then(function (answers) {
+	console.log(answers);
+  });
 
 
 app.listen(1111);

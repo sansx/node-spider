@@ -10,14 +10,18 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.6.0",
+    "chalk": "^2.4.1",
     "cheerio": "^1.0.0-rc.2",
     "commander": "^2.19.0",
+    "csv": "^5.0.0",
     "iconv-lite": "^0.4.19",
+    "inquirer": "^6.2.0",
     "koa": "2.0.0",
     "koa-bodyparser": "3.2.0",
     "koa-router": "7.0.0",
     "koa2-cors": "^2.0.6",
     "mysql": "2.11.1",
+    "sendgrid": "^5.2.3",
     "sequelize": "3.24.1",
     "superagent": "^3.8.3",
     "superagent-charset": "^1.2.0"
