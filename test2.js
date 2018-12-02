@@ -20,7 +20,6 @@ var bili = (search) => {
 			if (err) {
 				return 'some worron!';
 			}
-
 			var $ = cheerio.load(res.text);
 			var str = '';
 			var data = $('.video.matrix>a').each((re, el) => {
