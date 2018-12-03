@@ -44,5 +44,13 @@ function getWinfo(adress) {
 	});
 }
 
-getWinfo(`https://weibo.com/jiuguimoye?is_all=1`)
-getWinfo(`https://www.weibo.com/u/5933834580?is_all=1`)
+try {
+    getWinfo(`https://weibo.com/jiuguimoye?is_all=1`);
+    getWinfo(`https://www.weibo.com/u/5933834580?is_all=1`);
+}
+
+catch(error) {
+    console.error(error);
+    // expected output: SyntaxError: unterminated string literal
+    // Note - error messages will vary depending on browser
+  }
