@@ -21,6 +21,7 @@
     "koa-router": "7.0.0",
     "koa2-cors": "^2.0.6",
     "mysql": "2.11.1",
+    "nodemailer": "^4.7.0",
     "puppeteer": "^1.11.0",
     "sendgrid": "^5.2.3",
     "sequelize": "3.24.1",
