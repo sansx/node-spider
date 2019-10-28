@@ -24,7 +24,7 @@
     "nodemailer": "^4.7.0",
     "puppeteer": "^1.11.0",
     "sendgrid": "^5.2.3",
-    "sequelize": "3.24.1",
+    "sequelize": "5.21.1",
     "superagent": "^3.8.3",
     "superagent-charset": "^1.2.0"
   }
